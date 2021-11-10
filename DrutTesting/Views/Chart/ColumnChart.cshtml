@@ -1,0 +1,23 @@
+﻿@model DrutTesting.Models.clsChart;
+
+<body>
+    <input type="hidden" asp-for="data" />
+
+    <div id="3dcolumnchartdiv" style="height : 100%;"></div>
+</body>
+
+<script src="~/js/RPACharts.js"></script>
+
+<script src="~/js/AmCharts/core.js"></script>
+<script src="~/js/AmCharts/charts.js"></script>
+<script src="~/js/AmCharts/sunburst.js"></script>
+<script src="~/js/AmCharts/animated.js"></script>
+
+<script>
+
+    debugger;
+    var data = document.getElementById("data").value;
+    console.log(data);
+    Display3DColumnChartNew(JSON.parse(data), "3dcolumnchartdiv");
+
+</script>
