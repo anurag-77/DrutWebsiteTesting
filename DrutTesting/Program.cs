@@ -19,6 +19,7 @@ namespace DrutTesting
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+            .UseUrls("http://localhost:44001/", "https://localhost:44002/");
     }
 }
