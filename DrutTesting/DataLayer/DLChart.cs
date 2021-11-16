@@ -32,8 +32,6 @@ namespace DrutTesting.DataLayer
                 }
             }
 
-            data = null;
-
             return data;
         }
     }
