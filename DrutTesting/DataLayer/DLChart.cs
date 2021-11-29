@@ -20,8 +20,6 @@ namespace DrutTesting.DataLayer
 
             List<int> Yaxis3 = new List<int> { 238, 833, 654 };
 
-            Random random = new Random();
-
             lstYaxisList.Add(Yaxis1);
             lstYaxisList.Add(Yaxis2);
             lstYaxisList.Add(Yaxis3);
