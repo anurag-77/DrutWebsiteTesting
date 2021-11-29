@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace DrutTesting.DataLayer
 {
@@ -9,6 +10,20 @@ namespace DrutTesting.DataLayer
     {
         public List<Dictionary<string, string>> GetChartData(string ChartId)
         {
+            List<string> lstCategoryList = new List<string> { "Expenditure", "Labour", "Salary" };
+
+            List<List<int>> lstYaxisList = new List<List<int>>();
+
+            List<int> Yaxis1 = new List<int> { 278, 948, 902 };
+
+            List<int> Yaxis2 = new List<int> { 373, 736, 544 };
+
+            List<int> Yaxis3 = new List<int> { 238, 833, 654 };
+
+            lstYaxisList.Add(Yaxis1);
+            lstYaxisList.Add(Yaxis2);
+            lstYaxisList.Add(Yaxis3);
+
             List<Dictionary<string, string>> data = new List<Dictionary<string, string>>();
             if(!string.IsNullOrEmpty(ChartId))
             {
@@ -17,21 +32,23 @@ namespace DrutTesting.DataLayer
                 keyslist.Add("Dept_Sale_Value");
                 keyslist.Add("Top_Available");
                 keyslist.Add("Sales_MID");
-                Random random = new Random();
 
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     Dictionary<string, string> dictionary = new Dictionary<string, string>();
 
-                    dictionary.Add(keyslist[0], $"Category{i}");
-                    dictionary.Add(keyslist[1], $"{random.Next(10, 40)}");
-                    dictionary.Add(keyslist[2], $"{random.Next(30, 60)}");
-                    dictionary.Add(keyslist[3], $"{random.Next(60, 90)}");
+                    dictionary.Add(keyslist[0], $"{lstCategoryList[i]}");
+                    dictionary.Add(keyslist[1], $"{lstYaxisList[i][0]}");
+                    dictionary.Add(keyslist[2], $"{lstYaxisList[i][1]}");
+                    dictionary.Add(keyslist[3], $"{lstYaxisList[i][2]}");
 
                     data.Add(dictionary);
                 }
             }
 
+
+
+            string str = JsonConvert.SerializeObject(data);
             return data;
         }
     }
