@@ -24,6 +24,8 @@ namespace DrutTesting.DataLayer
             lstYaxisList.Add(Yaxis2);
             lstYaxisList.Add(Yaxis3);
 
+            Random random = new Random();
+
             List<Dictionary<string, string>> data = new List<Dictionary<string, string>>();
             if(!string.IsNullOrEmpty(ChartId))
             {
@@ -33,14 +35,14 @@ namespace DrutTesting.DataLayer
                 keyslist.Add("Top_Available");
                 keyslist.Add("Sales_MID");
 
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 30; i++)
                 {
                     Dictionary<string, string> dictionary = new Dictionary<string, string>();
 
-                    dictionary.Add(keyslist[0], $"{lstCategoryList[i]}");
-                    dictionary.Add(keyslist[1], $"{lstYaxisList[i][0]}");
-                    dictionary.Add(keyslist[2], $"{lstYaxisList[i][1]}");
-                    dictionary.Add(keyslist[3], $"{lstYaxisList[i][2]}");
+                    dictionary.Add(keyslist[0], $"Category_{i}");
+                    dictionary.Add(keyslist[1], $"{random.Next(35, 50)}");
+                    dictionary.Add(keyslist[2], $"{random.Next(20, 45)}");
+                    dictionary.Add(keyslist[3], $"{random.Next(30, 40)}");
 
                     data.Add(dictionary);
                 }
